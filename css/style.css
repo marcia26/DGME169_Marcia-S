@@ -1,0 +1,379 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* -------------------- BASE LAYOUT & CANVAS BACKGROUND -------------------- */
+
+body {
+    min-height: 100vh;
+    font-family: "dm-sans", sans-serif;
+    line-height: 1.6;
+    color: white; 
+}
+
+#content-container {
+    position: relative; 
+    z-index: 5;
+    min-height: 100vh;
+    width: 100%;
+}
+
+canvas {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: -3;
+    width: 100%;
+    height: 100%;
+}
+
+#gradient-canvas {
+    width:100%;
+    height:100%;
+    --gradient-color-1: #b25b04; 
+    --gradient-color-2: #8C1F07; 
+    --gradient-color-3: #150435;  
+    --gradient-color-4: #930303;
+    --gradient-color-5: #170c14;
+}
+
+/* -------------------- HEADER & NAVIGATION (Transparent) -------------------- */
+
+header {
+    background: rgba(51, 51, 51, 0.7); /* Semi-Transparent */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: relative; 
+    z-index: 10;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* --- LOGO (TOP LEFT) --- */
+
+.logo-home-link {
+    position: absolute;
+    top: 15px; 
+    left: 20px;
+    z-index: 20; 
+    display: block;
+}
+
+.logo-video {
+    width: 50px; 
+    height: auto;
+    background: transparent;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.logo-video:hover {
+    transform: scale(1.1);
+}
+
+/* --- CTA BUTTON (TOP RIGHT) --- */
+
+.cta {
+    background: #b32216;
+    padding: 12px 25px; 
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    
+    /* Accentuated Pill Shape */
+    border-radius: 50px; 
+    
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta:hover {
+    background: #8311cf;
+    transform: translateY(-2px);
+}
+
+.header-cta {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    margin: 0; 
+}
+
+
+
+/* -------------------- HERO SECTION (3D Background) -------------------- */
+
+.hero {
+    position: relative; 
+    width: 100%; 
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; 
+    max-width: 600px;
+    padding: 20px;
+    /*background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;*/
+}
+
+.hero canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* -------------------- GENERAL SECTIONS -------------------- */
+
+section {
+    padding: 40px 20px;
+}
+
+.featured-work{
+    margin-top: 100px;
+}
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2em;
+}
+
+p {
+   font-family: "roboto", sans-serif;
+  
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+/* -------------------- PROJECT GRID (Transparent & Rounded) -------------------- */
+
+.work-grid {
+    display: grid;
+    /* Sets up the default two-column grid */
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.work-item {
+    /* Semi-Transparent Background & Rounded Borders */
+    background-color: rgba(255, 255, 255, 0.1); 
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.work-item:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+    transform: translateY(-5px); 
+}
+
+.work-item img, .work-item video {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.work-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.work-item h3 {
+    color: white;
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+/* -------------------- SKILLS GRID SECTION (About Me) -------------------- */
+
+#about { 
+    color: white;
+    padding: 40px 20px; /* Ensure vertical padding for the section */
+}
+
+#about h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Main descriptive text stands out */
+#about p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.skills-grid {
+    /* Use a responsive grid layout */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; /* Spacing between the cards */
+    margin-top: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skill-card {
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle border for definition */
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Card content is centered on small screens if necessary */
+    text-align: left; 
+}
+
+.skill-card h3 {
+    /* Accent color for the skill category */
+    color: #ff5722; 
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.skill-card ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.skill-card li {
+    padding: 5px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    font-size: 1em;
+}
+
+.skill-card li:last-child {
+    border-bottom: none; /* Clean up the last list item */
+}
+/* -------------------- FOOTER (Transparent) -------------------- */
+
+footer {
+    background: rgba(51, 51, 51, 0.65); /* Semi-Transparent */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    z-index: 10;
+    margin-top: 50px;
+}
+
+.social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+}
+
+/* -------------------- CONTACT FORM SECTION -------------------- */
+
+.contact-section {
+    padding: 60px 20px;
+    color: white; 
+    text-align: center; /* Centers the heading and intro text */
+}
+
+.contact-intro {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* -------------------- MEDIA QUERIES (Responsiveness) -------------------- */
+
+@media (max-width: 768px) {
+    .work-grid {
+        grid-template-columns: 1fr; /* Stack items on small screens */
+    }
+    
+    .header-cta {
+        /* On small screens, move CTA below the nav bar */
+        position: static; 
+        transform: none;
+        margin: 10px auto; 
+        display: block;
+        width: fit-content;
+    }
+
+    .cta body-cta{
+        position: static; 
+        transform: none;
+        margin: 10px auto; 
+        display: block;
+        width: fit-content;
+    }
+    
+    header h1 {
+        margin-top: 50px;
+    }
+    
+    .logo-home-link {
+        top: 5px;
+        left: 5px;
+    }
+    
+    .logo-video {
+        width: 40px; 
+    }
+
+   
+}

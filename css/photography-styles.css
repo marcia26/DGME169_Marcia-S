@@ -1,0 +1,235 @@
+/* -------------------- UNIQUE GRADIENT COLORS FOR CONTOURING SF PROJECT -------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* -------- BASE LAYOUT & CANVAS BACKGROUND --------- */
+
+body {
+    min-height: 100vh;
+    font-family: "dm-sans", sans-serif;
+    line-height: 1.6;
+    color: white; 
+}
+
+#content-container {
+    position: relative; 
+    z-index: 5;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* This overrides the default colors set in style.css */
+#gradient-canvas {
+    --gradient-color-1: #0A0A0A; /* Deep Black */
+    --gradient-color-2: #2C3E50; /* Dark Slate Blue */
+    --gradient-color-3: #7F8C8D; /* Mid Gray */
+    --gradient-color-4: #BDC3C7; /* Light Silver */
+    --gradient-color-5: #ECF0F1; /* Near White */
+}
+
+
+.project-header h1 {
+    color: #BDC3C7; 
+}
+canvas {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: -3;
+    width: 100%;
+    height: 100%;
+}
+
+/* Project Main Container */
+.project-main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px 60px 20px;
+    background: transparent; /* Allows gradient background to show through */
+}
+
+
+/* --- Project Header Section --- */
+
+.project-header {
+    text-align: center;
+    padding: 80px 0 40px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.project-header h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #ffffff; 
+
+}
+
+.project-header .description {
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+}
+
+.project-hero-visual {
+    width: 100%;
+    margin-bottom: 40px;
+    /* glow/shadow to make the final visual pop */
+    box-shadow: 0 0 50px rgba(255, 255, 254, 0.3); 
+    border-radius: 10px;
+    overflow: hidden;
+}
+.projct-hero-visual p{
+    color:rgba(255, 255, 255, 0.7); 
+    margin-top: 15px; 
+    font-style: italic;
+}
+
+.project-hero-visual .final-render {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Case Study Content Layout --- */
+
+.case-study-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Summary Block (Goals, Tools, Outcomes) */
+.summary-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.2); /* Slight dark background for separation */
+}
+
+.summary-card h3 {
+    color: #ff5722;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.summary-card ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.summary-card li {
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Process Section */
+.section-process {
+    padding-top: 40px;
+}
+
+.section-process h2 {
+    font-size: 2.5em;
+    color: white;
+    text-align: left;
+    margin-bottom: 40px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.process-step {
+    margin-bottom: 50px;
+}
+
+.process-step h3 {
+    font-size: 1.8em;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.process-step p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+.process-visual {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: block;
+}
+/* -------------------- PHOTOGRAPHY GALLERY GRID -------------------- */
+
+.section-gallery {
+    padding: 40px 20px;
+    text-align: center;
+    max-width: 1200px;
+   margin-bottom: 40px;
+}
+
+.section-gallery h2 {
+    margin-bottom: 5px;
+}
+
+.section-gallery p {
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+photo-grid {
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    gap: 30px;
+    /* grid-template-columns: 1fr; */
+}
+
+.photo-item {
+    /* Photos fill their grid area */
+    overflow: hidden; 
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.photo-item img {
+    /* Make the image fill the container and maintain aspect ratio */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    /* Add a subtle transition for hover effects */
+    transition: transform 0.4s ease-in-out; 
+}
+
+/*  Enlarge the image slightly on hover for better viewing */
+.photo-item img:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* Media Query for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .project-header h1 {
+        font-size: 2.5em;
+    }
+    .summary-block {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    .section-process h2 {
+        text-align: center;
+    }
+   
+}
+
+
