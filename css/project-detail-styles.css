@@ -165,6 +165,7 @@ canvas {
     display: block;
 }
 
+<<<<<<< Updated upstream
 /* Keep this CSS for 16:9 scaling */
 .embed-container {
     position: relative;
@@ -182,6 +183,8 @@ canvas {
     height: 100%;
 }
 
+=======
+>>>>>>> Stashed changes
 /* Media Query for Mobile Responsiveness */
 @media (max-width: 768px) {
     .project-header h1 {
@@ -194,6 +197,7 @@ canvas {
     .section-process h2 {
         text-align: center;
     }
+<<<<<<< Updated upstream
 
 
      .summary-card {
@@ -202,4 +206,83 @@ canvas {
 }
 
 
+=======
+}
+
+/* -------------------- VIDEO PLAY BUTTON STYLES -------------------- */
+
+.video-container {
+    /*Play button to be absolutely positioned over the video */
+    position: relative; 
+    /* Video and button scale correctly within the container */
+    width: 100%;
+    /* Hide the default video controls */
+    overflow: hidden; 
+}
+
+.final-render-video {
+    /* Video scales to the container */
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Slight opacity to hint that it's a click-to-play element */
+    opacity: 0.9; 
+    transition: opacity 0.3s ease;
+}
+
+/* -------------------- The Custom Play Button -------------------- */
+
+.play-button {
+    /* Position the button over the video */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Center the button exactly in the middle */
+    transform: translate(-50%, -50%);
+    
+    /* Style the circular background */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(255, 87, 34, 0.9); /* Your CTA color */
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    
+    /* Hide the default button content */
+    padding: 0; 
+    
+    /* Hover effect */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.play-button:hover {
+    background-color: #ff5722; /* Slightly brighter on hover */
+    /* Add a subtle scale effect on hover */
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* -------------------- The Play Icon (Triangle) -------------------- */
+
+.play-button::after {
+    content: '';
+    /* Position the triangle slightly offset to look centered inside the circle */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -50%); /* Adjusted X-offset for optical centering */
+    
+    /* Use CSS borders to create a triangle shape */
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 20px solid white; /* White fill for the play icon */
+}
+
+/* Optional: Hide the button once the video starts playing */
+.video-container.playing .play-button {
+    opacity: 0;
+    pointer-events: none; /* button doesn't block video clicks */
+>>>>>>> Stashed changes
 }

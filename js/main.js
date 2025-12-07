@@ -127,7 +127,11 @@ function animate() {
     
     const delta = clock.getDelta(); // Get the time since the last frame
 
+<<<<<<< Updated upstream
     //  Update the mixer with the time delta
+=======
+    // 👇 CRITICAL: Update the mixer with the time delta
+>>>>>>> Stashed changes
     if (mixer) {
         mixer.update(delta); 
     }
@@ -151,4 +155,43 @@ if (heroContainer) {
 
 
 
+<<<<<<< Updated upstream
    
+=======
+    document.addEventListener('DOMContentLoaded', () => {
+        const videoContainer = document.querySelector('.video-container');
+        const video = document.querySelector('.final-render-video');
+        const playButton = document.querySelector('.play-button');
+
+        if (video && playButton && videoContainer) {
+            
+           // 1. Play when the custom button is clicked
+            playButton.addEventListener('click', () => {
+                
+                // SET VOLUME  (0.0 is mute, 1.0 is max volume) 👇
+                video.volume = 0.2; // Sets volume to 20%
+                video.play();
+                videoContainer.classList.add('playing');
+                // Optional: Show controls once playing
+                video.controls = true; 
+            });
+
+            // 2. Hide the button when the video starts playing (in case of autoplay)
+            video.addEventListener('play', () => {
+                videoContainer.classList.add('playing');
+            });
+            
+            // 3. Show the button again if the video ends or is paused
+            video.addEventListener('pause', () => {
+                videoContainer.classList.remove('playing');
+                video.controls = false; 
+            });
+            
+            video.addEventListener('ended', () => {
+                videoContainer.classList.remove('playing');
+                video.controls = false;
+            });
+        }
+    });
+
+>>>>>>> Stashed changes
